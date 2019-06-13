@@ -1,0 +1,45 @@
+<div class="container">
+  <br><br>
+  <button class="btn btn-primary" (click)="back()">Back</button>
+  <button id="right" class="btn btn-primary" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>Logout</button>
+  <br><br>
+  <div class="container">
+      <h3>Address: {{value}} </h3>      
+  </div>
+ 
+  <div #gmap style="width:100%;height:400px;"></div>
+ 
+  <br>
+  <h3>Temperature Details(°C) : </h3>
+  <br>
+  <div class="card">
+  <div *ngIf="chart">
+    <canvas id="canvas">{{ chart }}</canvas>
+  </div></div>
+  <br>
+  <h3>Precipitation Details(mm) :</h3>
+  <br>
+  <div class="card">
+  <div *ngIf="chart">
+    <canvas id="canvas2">{{ chart2 }}</canvas>
+  </div>
+  </div>
+  <!-- <div class="map">
+      <h1>Address:</h1>
+      <h2>{{value}}</h2>
+      <agm-map [latitude]='lat' [longitude]='lng' 
+      >
+      <agm-marker [latitude]="lat" [longitude]="lng" [label]="'L'">
+      </agm-marker>
+      
+      
+      
+      </agm-map>
+      
+      
+      </div> -->
+ 
+
+  
+  </div>

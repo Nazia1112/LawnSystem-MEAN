@@ -1,0 +1,43 @@
+<div class="container">
+  <br>
+  <h2>Registration Form</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="registerData()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input class="form-control" placeholder="Enter FirstName" formControlName="firstname" type="text" maxlength="20" >  
+    
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input class="form-control" placeholder="Enter Lastname" formControlName="lastname" type="text" maxlength="20" >
+    </div>
+    <div class="form-group">
+      <label>Username</label>
+      <input class="form-control" placeholder="Enter Username" formControlName="username" type="text" >
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" placeholder="Password" formControlName="password" >
+    </div>
+    <div class="form-group">
+      <label> Address </label>
+      <!-- <input class="form-control" placeholder="Enter Address" formControlName="address" type="text" required> -->
+      <input class="form-control" ngx-google-places-autocomplete #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+        (change)="changeAddress($event)" formControlName="address" type="text"  />
+
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input class="form-control" placeholder="Enter Email" formControlName="email" type="text" >
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input class="form-control" placeholder="Enter Phone" formControlName="phone" type="number">
+    </div>
+
+    <button type="submit" class="btn btn-primary " [disabled]="!this.registerForm.valid">
+        <i class="fas fa-user-plus"></i>Submit</button>
+    &nbsp;&nbsp;<button class="btn btn-primary " (click)="login()" >
+        <i class="fas fa-sign-in-alt"></i>Log in</button>
+  </form>
+</div>
